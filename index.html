@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<link rel="stylesheet" href="style.css"> 
+  </head>
+  <body>
+    <div class="jumbotron">
+      <h1>
+         Grade Calculator
+      </h1>
+      <p>
+        Fill in the following boxes below to calculate your grade!
+      </p>
+    
+      
+    </div>
+          <center>
+<h3>Current Class Grades: <span id="currentOutput"></span></h3> </center>
+
+    <div style="text-align:center;" id="main">
+<input class="textbox" type="number" placeholder="Total Points Earned" id="tpe1">
+      <input class="textbox" type="number" placeholder="Total Points Available" id="tpa1">
+      <input class="weightbox" type="number" placeholder="Section Weight" id="weight1">
+<br> <hr style="width: 25%;">
+      <input class="textbox" type="number" placeholder="Total Points Earned" id="tpe2">
+      <input class="textbox" type="number" placeholder="Total Points Available" id="tpa2">
+      <input class="weightbox" type="number" placeholder="Section Weight" id="weight2">
+<br>
+     <button class="button" onclick="checkGrade()">
+         Submit
+      </button>
+    </div>
+    
+        <div style="text-align:center;" id="secondary">
+      
+<input class="textbox" type="number" placeholder="Total Points Earned" id="tpe3">
+      <input class="textbox" type="number" placeholder="Total Points Available" id="tpa3">
+<span class="weightbox" id="displayWeight1"></span>
+<br>
+      <input class="textbox" type="number" placeholder="Total Points Earned" id="tpe4">
+      <input class="textbox" type="number" placeholder="Total Points Available" id="tpa4">
+      <span class="weightbox" id="displayWeight2"></span>
+
+      
+
+
+          
+          <br>
+      <button class="button" onclick="addGrade()" >
+         Calculate Grade
+      </button><br><br>
+         <h1> New Grade: <br>
+          <span id="output"></span></h1>  </div>
+    
+    
+  </body>
+  <script src="script.js"></script>
+</html>

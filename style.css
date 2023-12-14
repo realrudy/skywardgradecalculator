@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700&display=swap');
+
+body {
+  background-color: #181c24;
+  color:white;
+  margin:0;
+font-family: 'Poppins', sans-serif;  
+}
+p{
+  color:#959dac;
+}
+
+
+.jumbotron{
+  padding:50px;
+  text-align:center;
+  background-color:#202c3c;
+  margin-bottom:50px;
+}
+
+.button{
+  background-color:#2054dc;
+font-family: 'Poppins', sans-serif;  padding: 10px;
+  font-weight:700;
+  margin:10px;
+  border:0;
+  border-radius: 10px;
+  color:white;
+  transition: 0.4s;
+}
+.button:hover{
+  opacity: 0.8;
+  cursor:pointer;
+}
+
+.textbox{
+  background-color:#384454;
+    margin: 10px;
+
+font-family: 'Poppins', sans-serif;
+  padding: 10px;
+  color:white;
+  border: 0;
+  border-radius: 10px;
+  transition: 0.3s;
+  width: 190px;
+}
+
+.textbox:focus{
+  background-color: #202c3c;
+}
+
+.weightbox{
+  margin: 10px;
+    background-color:#2054dc;
+font-family: 'Poppins', sans-serif;padding: 10px;
+  color:white;
+  border: 0;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+.weightbox:focus{
+  background:transparent;
+  border: #2054dc 1px solid;
+}
+.weightbox::placeholder{
+  color:white;
+}
