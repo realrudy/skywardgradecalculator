@@ -79,3 +79,78 @@ function addGrade() {
         
   gradeOutput.innerText = output1 + output2 + '%'
 }
+
+// What If Calculator functions
+function addAssignment() {
+  const assignmentsContainer = document.getElementById('potential-assignments');
+  
+  const assignmentDiv = document.createElement('div');
+  assignmentDiv.className = 'assignment';
+  assignmentDiv.innerHTML = `
+    <input class="textbox" type="number" placeholder="Points Earned" required>
+    <input class="textbox" type="number" placeholder="Points Available" required>
+    <input class="weightbox" type="number" placeholder="Weight %" required>
+    <button class="remove-btn" onclick="removeAssignment(this)">×</button>
+  `;
+  
+  assignmentsContainer.appendChild(assignmentDiv);
+}
+
+function removeAssignment(button) {
+  const assignment = button.closest('.assignment');
+  if (document.querySelectorAll('#potential-assignments .assignment').length > 1) {
+    assignment.remove();
+  } else {
+    alert("You need at least one assignment.");
+  }
+}
+
+function calculatePotentialGrade() {
+  const currentGrade = parseFloat(document.getElementById('currentGrade').value);
+  const currentWeight = parseFloat(document.getElementById('currentWeight').value);
+  const assignments = document.querySelectorAll('#potential-assignments .assignment');
+  
+  if (isNaN(currentGrade) || isNaN(currentWeight) || currentWeight <= 0) {
+    alert("Please enter valid current grade information.");
+    return;
+  }
+  
+  let totalWeightedScore = currentGrade * currentWeight;
+  let totalWeight = currentWeight;
+  let isValid = true;
+  
+  assignments.forEach(assignment => {
+    const inputs = assignment.querySelectorAll('input');
+    const pointsEarned = parseFloat(inputs[0].value);
+    const pointsAvailable = parseFloat(inputs[1].value);
+    const weight = parseFloat(inputs[2].value);
+    
+    if (isNaN(pointsEarned) || isNaN(pointsAvailable) || isNaN(weight)) {
+      isValid = false;
+      return;
+    }
+    
+    if (pointsAvailable <= 0 || weight <= 0) {
+      isValid = false;
+      return;
+    }
+    
+    const percentage = (pointsEarned / pointsAvailable) * 100;
+    const weightedScore = percentage * weight;
+    totalWeightedScore += weightedScore;
+    totalWeight += weight;
+  });
+  
+  if (!isValid) {
+    alert("Please fill all fields with valid values.");
+    return;
+  }
+  
+  const finalGrade = totalWeightedScore / totalWeight;
+  document.getElementById('potentialOutput').textContent = finalGrade.toFixed(2) + "%";
+}
+
+// Initialize the first tab on load
+window.onload = function() {
+  document.querySelector('.tab-button').click();
+};

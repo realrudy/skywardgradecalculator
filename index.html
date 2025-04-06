@@ -1,59 +1,57 @@
-<html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-<link rel="stylesheet" href="style.css"> 
-  </head>
-  <body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grade Calculator</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap">
+</head>
+<body>
+  <div class="container">
     <div class="jumbotron">
-      <h1>
-         Grade Calculator
-      </h1>
-      <p>
-        Fill in the following boxes below to calculate your grade!
-      </p>
-    
-      
+      <h1>Grade Calculator</h1>
+      <p><span class="code-comment">// Calculate your potential grades</span></p>
     </div>
-          <center>
-<h3>Current Class Grades: <span id="currentOutput"></span></h3> </center>
 
-    <div style="text-align:center;" id="main">
-<input class="textbox" type="number" placeholder="Total Points Earned" id="tpe1">
-      <input class="textbox" type="number" placeholder="Total Points Available" id="tpa1">
-      <input class="weightbox" type="number" placeholder="Section Weight" id="weight1">
-<br> <hr style="width: 25%;">
-      <input class="textbox" type="number" placeholder="Total Points Earned" id="tpe2">
-      <input class="textbox" type="number" placeholder="Total Points Available" id="tpa2">
-      <input class="weightbox" type="number" placeholder="Section Weight" id="weight2">
-<br>
-     <button class="button" onclick="checkGrade()">
-         Submit
-      </button>
+    <div id="what-if-tab" class="tab-content active">
+      <h2><span class="code-function">simulateGrade()</span></h2>
+      <div class="what-if-container">
+        <div class="current-grades">
+          <h3><span class="code-keyword">let</span> currentGradeData</h3>
+          <div class="input-group">
+            <input class="textbox" type="number" id="currentGrade" placeholder="Current Grade %" required>
+            <input class="weightbox" type="number" id="currentWeight" placeholder="Current Weight %" required>
+          </div>
+          <p class="help-text"><span class="code-comment">// Enter your current grade percentage and its weight</span></p>
+        </div>
+        
+        <div id="potential-assignments">
+          <h3><span class="code-keyword">const</span> potentialAssignments = []</h3>
+          <div class="assignment">
+            <input class="textbox" type="number" placeholder="Points Earned" required>
+            <input class="textbox" type="number" placeholder="Points Available" required>
+            <input class="weightbox" type="number" placeholder="Weight %" required>
+            <button class="remove-btn" onclick="removeAssignment(this)">×</button>
+          </div>
+        </div>
+        
+        <div class="buttons-container">
+          <button class="button add-btn" onclick="addAssignment()">
+            Add Assignment
+          </button>
+          <button class="button calc-btn" onclick="calculatePotentialGrade()">
+            Calculate Potential Grade
+          </button>
+        </div>
+        
+        <div class="result">
+          <h2>Potential Grade: <span id="potentialOutput" class="grade-output">--</span></h2>
+        </div>
+      </div>
     </div>
-    
-        <div style="text-align:center;" id="secondary">
-      
-<input class="textbox" type="number" placeholder="Assignment Points Earned" id="tpe3">
-      <input class="textbox" type="number" placeholder="Assignment Points Available" id="tpa3">
-<span class="weightbox" id="displayWeight1"></span>
-<br>
-      <input class="textbox" type="number" placeholder="Assignment Points Earned" id="tpe4">
-      <input class="textbox" type="number" placeholder="Assignment Points Available" id="tpa4">
-      <span class="weightbox" id="displayWeight2"></span>
-
-      
-
-
-          
-          <br>
-      <button class="button" onclick="addGrade()" >
-         Calculate Grade
-      </button><br><br>
-         <h1> New Grade: <br>
-          <span id="output"></span></h1>  </div>
-    
-    
-  </body>
+  </div>
+  
   <script src="script.js"></script>
+</body>
 </html>
